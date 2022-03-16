@@ -30,7 +30,7 @@ export const App = (props) => {
     });
     dispatch({
       type: `update/apps/${props.index}`,
-      value: { isFocused: true },
+      value: { isFocused: true, isPopupOns: true },
     });
   };
   return (

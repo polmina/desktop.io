@@ -74,6 +74,12 @@ export const OpenApp = (props) => {
   const toggleMaximize = (e) => {
     setIsMaximized(!isMaximized);
   };
+  const minimize = () => {
+    dispatch({
+      type: `update/apps/${props.index}`,
+      value: { isPopupOn: false },
+    });
+  };
   const clickEvent = () => {
     dispatch({
       type: `update/apps/all`,
@@ -94,10 +100,8 @@ export const OpenApp = (props) => {
         <Header className="handle">
           <Title>{props.data?.name}</Title>
           <IconsWrapper>
-            <Icon
-              src={!isMaximized ? maximizeIcon : minimizeIcon}
-              onClick={toggleMaximize}
-            />
+            <Icon src={minimizeIcon} onClick={minimize} />
+            <Icon src={maximizeIcon} onClick={toggleMaximize} />
             <Icon src={closeIcon} onClick={close} />
           </IconsWrapper>
         </Header>
